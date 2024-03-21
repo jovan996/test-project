@@ -32,7 +32,8 @@ public class UserDataFetcher {
     @DgsQuery
     public User user(@InputArgument Long id) {
 
-        return userRepository.findById(id).map(this::mapToUser)
+        return userRepository.findById(id)
+                .map(this::mapToUser)
                 .orElseThrow(DgsEntityNotFoundException::new);
     }
 
